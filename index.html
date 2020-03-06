@@ -1,50 +1,196 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="Emre Neftci">
+<title>Neural Networks and Machine Learning</title>
 
-		<title>reveal.js</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/nmilab.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="lib/css/monokai.css">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+<!-- Printing and PDF exports -->
+<script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+<!--
+<section data-markdown><textarea data-template>
+<h2> </h2>                                                     
+<ul>
+  <li/>
+</ul>
+</textarea></section>
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/surrogate-gradient-learning/pytorch-lif-autograd/blob/master/tutorial01_dcll_localerrors.ipynb)
+-->
 
-		<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				hash: true,
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/highlight/highlight.js' },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-		</script>
-	</body>
+<section data-markdown data-vertical-align-top data-background-color=#B2BA67><textarea data-template>
+    <h1> Title </h1>
+    <h2> Subtitle </h2>
+
+    ### Author
+
+  <center>https://canvas.eee.uci.edu/courses/21750</center>
+  <center>http://tinyurl.com/nmi-lab-appointments</center>
+
+  [![Print](images/printer.svg)](?print-pdf)
+
+</textarea>
+</section>
+
+
+<section data-markdown><textarea data-template>
+<h2> Slide title </h2>
+<img src="images/placeholder.png" />
+
+<ul>
+    <li/> Bullet
+    <li/> Bullet
+    <li/> Bullet
+</ul>
+</textarea></section>
+
+
+<section data-markdown><textarea data-template>
+<h2> Slide Title </h2>                                                     
+<ul>
+  <li /> Bullet
+    <pre> 
+      pre - fo  rma tted
+    </pre>
+  <li /> Bullet
+  <li class=fragment /> Bullet appearing later
+  <li class=fragment /> Bullet appearing later 
+</ul>
+</textarea></section>
+
+<section data-markdown><textarea data-template>
+<h2> Slide Title </h2>                                                     
+<ul>
+  <li /> Bullet
+
+<pre><code class="Python" data-trim data-noescape>
+train_set = datasets.CIFAR10('./data',
+                                train=True, download=True,
+                                transform=preprocess,
+                                target_transform = None,)
+
+def hi(*args):
+  print("hello")
+
+</code></pre>
+ 
+</ul>
+</textarea></section>
+
+<section data-markdown><textarea data-template>
+<h2> Slide Title </h2>                                                     
+<ul>
+  <li /> Bullet
+$$ Total Loss = \sum_{ij} Loss(Y_{ij},T_{ij}) $$
+ 
+</ul>
+</textarea></section>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- End of slides -->
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+Reveal.configure({ pdfMaxPagesPerSlide: 1, hash: true, slideNumber: true})
+Reveal.initialize({
+mouseWheel: false,
+width: 1280,
+height: 720,
+margin: 0.0,
+navigationMode: 'grid',
+transition: 'slide',
+menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
+    themes: false,
+    transitions: false,
+    markers: true,
+    hideMissingTitles: true,
+    custom: [
+              { title: 'Plugins', icon: '<i class="fa fa-external-link-alt"></i>', src: 'toc.html' },
+              { title: 'About', icon: '<i class="fa fa-info"></i>', src: 'about.html' }
+          ]
+  },
+math: {
+  mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+  config: 'TeX-AMS_HTML-full', // See http://docs.mathjax.org/en/latest/config-files.html
+  // pass other options into `MathJax.Hub.Config()`
+  TeX: { Macros: { Dp: ["\\frac{\\partial #1}{\\partial #2}",2] }}
+  //TeX: { Macros: { Dp#1#2:  },
+},
+chalkboard: { 
+src:'slides_2-chalkboard.json',
+penWidth : 1.0,
+chalkWidth : 1.5,
+chalkEffect : .5, 
+readOnly: false, 
+toggleChalkboardButton: { left: "80px" },
+toggleNotesButton: { left: "130px" },
+transition: 100,
+theme: "whiteboard",
+},
+menu : { titleSelector: 'h1', hideMissingTitles: true,},
+keyboard: {
+67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+46: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+88: function() { RevealChalkboard.colorNext() },	// cycle colors forward when 'x' is pressed
+89: function() { RevealChalkboard.colorPrev() },	// cycle colors backward when 'y' is pressed
+},
+dependencies: [
+{ src: 'node_modules/reveald3/reveald3.js' },
+{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: 'plugin/markdown/marked.js' },
+{ src: 'plugin/markdown/markdown.js' },
+{ src: 'plugin/notes/notes.js', async: true },
+{ src: 'plugin/highlight/highlight.js', async: true, languages: ["Python"] },
+{ src: 'plugin/math/math.js', async: true },
+{ src: 'external-plugins/chalkboard/chalkboard.js' },
+{ src: 'node_modules/reveal.js-menu/menu.js' }
+]
+});
+</script>
+
+
+
+<script type="text/bibliography">
+  @article{gregor2015draw,
+    title={DRAW: A recurrent neural network for image generation},
+    author={Gregor, Karol and Danihelka, Ivo and Graves, Alex and Rezende, Danilo Jimenez and Wierstra, Daan},
+    journal={arXivreprint arXiv:1502.04623},
+    year={2015},
+    url={https://arxiv.org/pdf/1502.04623.pdf}
+  }
+</script>
+</body>
 </html>
+
+
